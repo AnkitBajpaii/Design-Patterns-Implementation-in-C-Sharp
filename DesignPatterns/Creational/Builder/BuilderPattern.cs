@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+//Respecting the dependency inversion principle
 namespace Creational.Builder
 {
     public interface IBuilder
@@ -11,13 +12,17 @@ namespace Creational.Builder
         void BuildPart2();
         void BuildPart3();
 
-        Product GetProduct();
+        IProduct GetProduct();
     }
 
     public class ConcreteBuilder : IBuilder
     {
-        private Product _product = new Product();
+        private IProduct _product;
 
+        public ConcreteBuilder(IProduct product)
+        {
+            _product = product;
+        }
         public void BuildPart1()
         {
             _product.Part1 = "Builded Part 1";
@@ -33,13 +38,22 @@ namespace Creational.Builder
             _product.Part3 = "Builded Part 3";
         }
 
-        public Product GetProduct()
+        public IProduct GetProduct()
         {
             return _product;
         }
     }
 
-    public class Product
+    public interface IProduct
+    {
+        string Part1 { get; set; }
+        string Part2 { get; set; }
+        string Part3 { get; set; }
+
+        void ShowInfo();
+    }
+
+    public class Product : IProduct
     {
         public string Part1 { get; set; }
         public string Part2 { get; set; }
@@ -69,7 +83,7 @@ namespace Creational.Builder
             builder.BuildPart3();
         }
 
-        public Product GetProduct()
+        public IProduct GetProduct()
         {
             return builder.GetProduct();
         }
