@@ -19,8 +19,8 @@ The 23 Gang of Four (GoF) patterns are generally considered the foundation for a
 This repository contains the implementation of Creational Patterns :
 - Factory Pattern  
 - Abstract Factory Pattern  
-Builder Pattern  
-Prototype Pattern  
+- Builder Pattern  
+- Prototype Pattern  
 
 ## Up-coming  
 Creational : Singleton, Multithreaded Singleton  
