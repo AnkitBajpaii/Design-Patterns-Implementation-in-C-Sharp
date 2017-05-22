@@ -7,20 +7,22 @@ using Creational.AbstractFactory;
 using Creational.AbstractFactoryRealWorld;
 using Creational.Builder;
 using Creational.Prototype;
+using Creational.Singleton;
 
 namespace Creational
 {
     class Program
     {
+        #region Factory Pattern
         static void StandardFactoryPatternStructure()
         {
             //Creating Objects by Factory Pattern
             Creator creator = new ConcreteCreator();
-            IProduct productA = creator.FactoryMethod("ConcreteProductA");
+            Creational.Factory.IProduct productA = creator.FactoryMethod("ConcreteProductA");
             productA.Display();
-            IProduct productB = creator.FactoryMethod("ConcreteProductB");
+            Creational.Factory.IProduct productB = creator.FactoryMethod("ConcreteProductB");
             productB.Display();
-            IProduct productC = creator.FactoryMethod("ConcreteProductC");
+            Creational.Factory.IProduct productC = creator.FactoryMethod("ConcreteProductC");
             productC.Display();
         }
 
@@ -35,7 +37,9 @@ namespace Creational
             bike.Drive(20);
 
         }
+        #endregion
 
+        #region Abstract Factory Pattern
         static void StandardAbstractFactoryPatternStructure()
         {
             IAbstractFactory _abstractFactory1 = new ConcreteFactory1();
@@ -68,12 +72,14 @@ namespace Creational
             VehicleClient heroClient = new VehicleClient(heroFactory, "Sports");
             heroClient.DisplayProductDetails();
         }
+        #endregion
 
+        #region Builder Pattern
         static void StandardBuilderPatternStructure()
         {
-            var director = new Director(new ConcreteBuilder());
+            var director = new Director(new ConcreteBuilder(new Product()));
             director.Construct();
-            var product = director.GetProduct();
+            Creational.Builder.IProduct product = director.GetProduct();
             product.ShowInfo();
         }
 
@@ -89,7 +95,9 @@ namespace Creational
             Vehicle heroVehicle = vehicleCreator.GetVehicle();
             heroVehicle.ShowInfo();
         }
+        #endregion
 
+        #region Prototype Pattern
         static void PrototypePatternRealWorldDemo()
         {
             Developer dev = new Developer();
@@ -115,24 +123,47 @@ namespace Creational
             Console.WriteLine(typist.GetDetails());
             Console.WriteLine(typistCopy.GetDetails());
         }
+        #endregion
+
+        #region Singleton Pattern
+        static void SingletonPatternDemo()
+        {
+            Creational.Singleton.Singleton Instance_1 = Singleton.Singleton.Instance;
+            Creational.Singleton.Singleton Instance_2 = Singleton.Singleton.Instance;
+            if(Instance_1 == Instance_2)
+                Console.WriteLine("These are Singleton instance");
+            else
+                Console.WriteLine("Singleton implementation failed.");
+        }
+        #endregion
 
         static void Main(string[] args)
         {
-            // Un Comment the below patterns to see output
-            //Factory Pattern
+            // Un-Comment the below patterns to see output
+
+            #region Factory Pattern
             //StandardFactoryPatternStructure();
             //FactoryPatternRealWorldDemo();
+            #endregion
 
-            //Abstract Factory Pattern
+            #region Abstract Factory Pattern
             //StandardAbstractFactoryPatternStructure();
             //AbstractFactoryPatternRealWorldDemo();
+            #endregion
 
-            //Builder Pattern
+            #region Builder Pattern
             //StandardBuilderPatternStructure();
             //BuilderPatternRealWorldDemo();
+            #endregion
 
+            #region Prototype Pattern
             //Prototype Pattern
             //PrototypePatternRealWorldDemo();
+            #endregion
+
+            #region Singleton Pattern
+            SingletonPatternDemo();
+            #endregion
 
             Console.ReadLine();
         }
