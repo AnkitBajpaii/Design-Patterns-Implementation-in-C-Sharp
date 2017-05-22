@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Creational.Factory;
 using Creational.AbstractFactory;
 using Creational.AbstractFactoryRealWorld;
@@ -9,10 +10,11 @@ using Creational.Builder;
 using Creational.Prototype;
 using Creational.Singleton;
 
-namespace Creational
+namespace DesignPatterns
 {
     class Program
     {
+        #region Creationtional Patterns
         #region Factory Pattern
         static void StandardFactoryPatternStructure()
         {
@@ -128,19 +130,20 @@ namespace Creational
         #region Singleton Pattern
         static void SingletonPatternDemo()
         {
-            Creational.Singleton.Singleton Instance_1 = Singleton.Singleton.Instance;
-            Creational.Singleton.Singleton Instance_2 = Singleton.Singleton.Instance;
-            if(Instance_1 == Instance_2)
+            Creational.Singleton.Singleton Instance_1 = Singleton.Instance;
+            Creational.Singleton.Singleton Instance_2 = Singleton.Instance;
+            if (Instance_1 == Instance_2)
                 Console.WriteLine("These are Singleton instance");
             else
                 Console.WriteLine("Singleton implementation failed.");
         }
         #endregion
+        #endregion
 
         static void Main(string[] args)
         {
             // Un-Comment the below patterns to see output
-
+            #region Creationtional Patterns
             #region Factory Pattern
             //StandardFactoryPatternStructure();
             //FactoryPatternRealWorldDemo();
@@ -163,6 +166,7 @@ namespace Creational
 
             #region Singleton Pattern
             SingletonPatternDemo();
+            #endregion
             #endregion
 
             Console.ReadLine();
