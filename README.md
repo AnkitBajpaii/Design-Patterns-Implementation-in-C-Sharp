@@ -21,8 +21,8 @@ This repository contains the implementation of Creational Patterns :
 - Abstract Factory Pattern  
 - Builder Pattern  
 - Prototype Pattern  
+- Singleton Pattern
 
 ## Up-coming  
-Creational : Singleton, Multithreaded Singleton  
 Structual Pattern  
 
