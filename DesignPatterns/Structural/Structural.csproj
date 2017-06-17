@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\AdapterPattern.cs" />
+    <Compile Include="Adapter\AdapterRealWorlDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Adapter\" />
     <Folder Include="Bridge\" />
     <Folder Include="Composite\" />
     <Folder Include="Decorator\" />

@@ -10,6 +10,9 @@ using Creational.Builder;
 using Creational.Prototype;
 using Creational.Singleton;
 
+using Structural.Adapter;
+using Structural.AdapterRealWorldDemo;
+
 namespace DesignPatterns
 {
     class Program
@@ -45,7 +48,7 @@ namespace DesignPatterns
         static void StandardAbstractFactoryPatternStructure()
         {
             IAbstractFactory _abstractFactory1 = new ConcreteFactory1();
-            Client _client1 = new Client(_abstractFactory1);
+            Creational.AbstractFactory.Client _client1 = new Creational.AbstractFactory.Client(_abstractFactory1);
 
             AbstractProductA _productA1 = _client1._abstractProductA;
             _productA1.DisplayProductADetails();
@@ -54,7 +57,7 @@ namespace DesignPatterns
             _productB1.DisplayProductBDetails();
 
             IAbstractFactory _abstractFactory2 = new ConcreteFactory2();
-            Client _client2 = new Client(_abstractFactory2);
+            Creational.AbstractFactory.Client _client2 = new Creational.AbstractFactory.Client(_abstractFactory2);
 
             AbstractProductA _productA2 = _client2._abstractProductA;
             _productA2.DisplayProductADetails();
@@ -140,9 +143,30 @@ namespace DesignPatterns
         #endregion
         #endregion
 
+        #region StructurlPatterns
+
+        #region Adapter Pattern
+
+        public static void StandardAdapterPattern()
+        {
+            Structural.Adapter.Client client = new Structural.Adapter.Client(new Adapter());
+            client.MakeRequest();
+        }
+
+        public static void RealWorldAdapterPattern()
+        {
+            ThirdPartyBillingSystem billingSystem = new ThirdPartyBillingSystem(new EmployeeAdapter());
+            billingSystem.ShowEmployeeList();
+        }
+
+        #endregion
+
+        #endregion
+
         static void Main(string[] args)
         {
             // Un-Comment the below patterns to see output
+            
             #region Creationtional Patterns
             #region Factory Pattern
             //StandardFactoryPatternStructure();
@@ -165,8 +189,17 @@ namespace DesignPatterns
             #endregion
 
             #region Singleton Pattern
-            SingletonPatternDemo();
+            //SingletonPatternDemo();
             #endregion
+            #endregion
+
+            #region Structural Patterns
+
+            #region AdapterPattern
+            //StandardAdapterPattern();
+            //RealWorldAdapterPattern();
+            #endregion
+
             #endregion
 
             Console.ReadLine();
