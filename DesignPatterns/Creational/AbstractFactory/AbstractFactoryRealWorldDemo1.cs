@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Creational.AbstractFactoryRealWorld
 {
@@ -12,12 +9,6 @@ namespace Creational.AbstractFactoryRealWorld
         string Name { get; set; }
     }
 
-    public interface IScooter
-    {
-        string Name { get; set; }
-    }
-
-    //Concrete types/products
     public class SportsBike : IBike
     {
         public string Name { get; set; }
@@ -39,6 +30,10 @@ namespace Creational.AbstractFactoryRealWorld
         }
     }
 
+    public interface IScooter
+    {
+        string Name { get; set; }
+    }
 
     public class Scooty : IScooter
     {
@@ -69,7 +64,7 @@ namespace Creational.AbstractFactoryRealWorld
         IScooter GetScooter(string type);
     }
 
-    //Concrete Factories
+    // Concrete factories produce a family of products that belong to a single variant
     public class HondaFactory : IVehicleFactory
     {
         public IBike GetBike(string type)
@@ -95,6 +90,7 @@ namespace Creational.AbstractFactoryRealWorld
         }
     }
 
+    // Concrete factories produce a family of products that belong to a single variant
     public class HeroFactory : IVehicleFactory
     {
 

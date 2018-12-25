@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Creational.Factory
 {
     public interface IProduct
     {
-        void Display();
+        void SomeMethod();
     }
 
     public class ConcreteProductA : IProduct
     {
-        public void Display()
+        public void SomeMethod()
         {
             Console.WriteLine("ConcreteProductA");
         }
@@ -20,17 +17,9 @@ namespace Creational.Factory
 
     public class ConcreteProductB : IProduct
     {
-        public void Display()
+        public void SomeMethod()
         {
             Console.WriteLine("ConcreteProductB");
-        }
-    }
-
-    public class ConcreteProductC : IProduct
-    {
-        public void Display()
-        {
-            Console.WriteLine("ConcreteProductC");
         }
     }
 
@@ -43,19 +32,14 @@ namespace Creational.Factory
         public override IProduct FactoryMethod(string type)
         {
             IProduct product = null;
-            if (type.Equals("ConcreteProductA"))
+            if (type.Equals("A"))
             {
                 product = new ConcreteProductA();
             }
 
-            else if (type.Equals("ConcreteProductB"))
+            else if (type.Equals("B"))
             {
                 product = new ConcreteProductB();
-            }
-
-            else if (type.Equals("ConcreteProductC"))
-            {
-                product = new ConcreteProductC();
             }
 
             return product;

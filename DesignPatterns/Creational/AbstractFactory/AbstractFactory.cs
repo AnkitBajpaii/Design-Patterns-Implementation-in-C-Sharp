@@ -1,96 +1,119 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Creational.AbstractFactory
 {
-    public abstract class AbstractProductA
+    public interface IAbstractProductA
     {
-        public virtual void DisplayProductADetails()
+        void DisplayProductDetails();
+    }
+
+    public class ConcreteProductA1 : IAbstractProductA
+    {
+        public void DisplayProductDetails()
         {
-            Console.WriteLine("Default Details of Product A");
+            Console.WriteLine("Product A1 details");
         }
     }
 
-    public abstract class AbstractProductB
+    public class ConcreteProductA2 : IAbstractProductA
     {
-        public virtual void DisplayProductBDetails()
+        public void DisplayProductDetails()
         {
-            Console.WriteLine("Default Details of Product B");
+            Console.WriteLine("Product A2 details");
         }
     }
 
-    public class ProductA1 : AbstractProductA
+    public interface IAbstractProductB
     {
-        public override void DisplayProductADetails()
+        void DisplayProductDetails();
+    }
+
+    public class ConcreteProductB1 : IAbstractProductB
+    {
+        public void DisplayProductDetails()
         {
-            Console.WriteLine("In Product A1");
+            Console.WriteLine("Product B1 details");
         }
     }
 
-    public class ProductA2 : AbstractProductA
+    public class ConcreteProductB2 : IAbstractProductB
     {
-
-    }
-
-    public class ProductB1 : AbstractProductB
-    {
-        public override void DisplayProductBDetails()
+        public void DisplayProductDetails()
         {
-            Console.WriteLine("In Product B1");
+            Console.WriteLine("Product B2 details");
         }
-    }
-
-    public class ProductB2 : AbstractProductB
-    {
-
     }
 
     public interface IAbstractFactory
     {
-        AbstractProductA CreateProductA();
-
-        AbstractProductB CreateProductB();
+        IAbstractProductA CreateATypeProduct(string type);
+        IAbstractProductB CreateBTypeProduct(string type);
     }
 
-    public class ConcreteFactory1 : IAbstractFactory
+    // Concrete factories produce a family of products that belong to a single variant
+    public class Product1Factory : IAbstractFactory
     {
-        public AbstractProductA CreateProductA()
+        public IAbstractProductA CreateATypeProduct(string type)
         {
-            return new ProductA1();
+            if(type == "1")
+                return new ConcreteProductA1();
+            if (type == "2")
+                return new ConcreteProductA2();
+
+            return null;
         }
 
-        public AbstractProductB CreateProductB()
+        public IAbstractProductB CreateBTypeProduct(string type)
         {
-            return new ProductB1();
+            if (type == "1")
+                return new ConcreteProductB1();
+            if (type == "2")
+                return new ConcreteProductB2();
+
+            return null;            
         }
     }
 
-    public class ConcreteFactory2 : IAbstractFactory
+    // Concrete factories produce a family of products that belong to a single variant
+    public class Product2Factory : IAbstractFactory
     {
-        public AbstractProductA CreateProductA()
+        public IAbstractProductA CreateATypeProduct(string type)
         {
-            return new ProductA2();
+            if (type == "1")
+                return new ConcreteProductA1();
+            if (type == "2")
+                return new ConcreteProductA2();
+
+            return null;
         }
 
-        public AbstractProductB CreateProductB()
+        public IAbstractProductB CreateBTypeProduct(string type)
         {
-            return new ProductB2();
+            if (type == "1")
+                return new ConcreteProductB1();
+            if (type == "2")
+                return new ConcreteProductB2();
+
+            return null;
         }
     }
 
-    public class Client
+    /* one more level of abstraction. This may not be required  */
+    public class ProductClient
     {
-        public AbstractProductA _abstractProductA;
-        public AbstractProductB _abstractProductB;
+        IAbstractProductA productA;
+        IAbstractProductB productB;
 
-        public Client(IAbstractFactory _abstractFactory)
+        public ProductClient(IAbstractFactory factory, string type)
         {
-            _abstractProductA = _abstractFactory.CreateProductA();
-            _abstractProductB = _abstractFactory.CreateProductB(); 
+            productA = factory.CreateATypeProduct(type);
+            productB = factory.CreateBTypeProduct(type);
+        }
+
+        public void DisplayProductDetails()
+        {
+            productA.DisplayProductDetails();
+            productB.DisplayProductDetails();
         }
     }
-
-
 }

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Creational.Factory
 {
-
     /// <summary>
     /// The 'Product' interface
     /// </summary>
-    public interface IFactory
+    public interface IVehicle
     {
         void Drive(int miles);
     }
@@ -17,7 +13,7 @@ namespace Creational.Factory
     /// <summary>
     /// A 'ConcreteProduct' class
     /// </summary>
-    public class Scooter : IFactory
+    public class Scooter : IVehicle
     {
         public void Drive(int miles)
         {
@@ -28,7 +24,7 @@ namespace Creational.Factory
     /// <summary>
     /// A 'ConcreteProduct' class
     /// </summary>
-    public class Bike : IFactory
+    public class Bike : IVehicle
     {
         public void Drive(int miles)
         {
@@ -39,18 +35,18 @@ namespace Creational.Factory
     /// <summary>
     /// The Creator Abstract Class
     /// </summary>
-    public abstract class VehicleFactory
+    public interface IVehicleFactory
     {
-        public abstract IFactory GetVehicle(string Vehicle);
+        IVehicle GetVehicle(string Vehicle);
 
     }
 
     /// <summary>
     /// A 'ConcreteCreator' class
     /// </summary>
-    public class ConcreteVehicleFactory : VehicleFactory
+    public class ConcreteVehicleFactory : IVehicleFactory
     {
-        public override IFactory GetVehicle(string Vehicle)
+        public IVehicle GetVehicle(string Vehicle)
         {
             switch (Vehicle)
             {

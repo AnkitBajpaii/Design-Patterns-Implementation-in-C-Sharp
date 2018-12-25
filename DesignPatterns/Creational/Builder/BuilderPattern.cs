@@ -1,11 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿//Respecting the dependency inversion principle
 
-//Respecting the dependency inversion principle
 namespace Creational.Builder
 {
+    public interface IProduct
+    {
+        void SetPart1();
+        void SetPart2();
+        void SetPart3();
+    }
+
+    public class Product : IProduct
+    {
+        string part1;
+        string part2;
+        string part3;
+
+        public void SetPart1()
+        {
+            this.part1 = "part1 is ready";
+        }
+
+        public void SetPart2()
+        {
+            this.part2 = "part2 is ready";
+        }
+
+        public void SetPart3()
+        {
+            this.part3 = "part3 is ready";
+        }
+    }
+
     public interface IBuilder
     {
         void BuildPart1();
@@ -19,51 +44,28 @@ namespace Creational.Builder
     {
         private IProduct _product;
 
-        public ConcreteBuilder(IProduct product)
+        public ConcreteBuilder()
         {
-            _product = product;
+            _product = new Product();
         }
         public void BuildPart1()
         {
-            _product.Part1 = "Builded Part 1";
+            _product.SetPart1();
         }
 
         public void BuildPart2()
         {
-            _product.Part2 = "Builded Part 2";
+            _product.SetPart2();
         }
 
         public void BuildPart3()
         {
-            _product.Part3 = "Builded Part 3";
+            _product.SetPart3();
         }
 
         public IProduct GetProduct()
         {
             return _product;
-        }
-    }
-
-    public interface IProduct
-    {
-        string Part1 { get; set; }
-        string Part2 { get; set; }
-        string Part3 { get; set; }
-
-        void ShowInfo();
-    }
-
-    public class Product : IProduct
-    {
-        public string Part1 { get; set; }
-        public string Part2 { get; set; }
-        public string Part3 { get; set; }
-
-        public void ShowInfo()
-        {
-            Console.WriteLine("Part 1 " + Part1);
-            Console.WriteLine("Part 2 " + Part2);
-            Console.WriteLine("Part 3 " + Part3);
         }
     }
 
