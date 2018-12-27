@@ -114,10 +114,10 @@ namespace Creational.Builder
     }
 
     //Director class
-    public class VehicleCreator
+    public class VehicleDirector
     {
         IVehicleBuilder builder;
-        public VehicleCreator(IVehicleBuilder _builder)
+        public VehicleDirector(IVehicleBuilder _builder)
         {
             builder = _builder;
         }

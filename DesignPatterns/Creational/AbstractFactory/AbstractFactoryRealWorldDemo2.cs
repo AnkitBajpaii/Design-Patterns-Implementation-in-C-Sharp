@@ -4,61 +4,63 @@ namespace Creational.AbstractFactory
 {
     public interface IButton
     {
-        void CreateButton();
+        void Click();
     }
 
     public class WinButton : IButton
     {
-        public void CreateButton()
+        public void Click()
         {
-            Console.WriteLine("Window button created");
+            Console.WriteLine("Window button clicked");
         }
     }
 
     public class MacButton : IButton
     {
-        public void CreateButton()
+        public void Click()
         {
-            Console.WriteLine("Mac button created");
+            Console.WriteLine("Mac button clicked");
         }
     }
 
     public interface ICheckBox
     {
-        void CreateCheckBox();
+        void Check();
     }
 
     public class WinCheckBox : ICheckBox
     {
-        public void CreateCheckBox()
+        public void Check()
         {
-            Console.WriteLine("Windows check box created");
+            Console.WriteLine("Windows check box checked");
         }
     }
 
     public class MacCheckBox : ICheckBox
     {
-        public void CreateCheckBox()
+        public void Check()
         {
-            Console.WriteLine("Mac check box created");
+            Console.WriteLine("Mac check box checked");
         }
     }
 
     public interface IGUIFactory
     {
-        IButton CreateButton();
-        ICheckBox CreateCheckBox();
+        IButton GetButton();
+        ICheckBox GetCheckBox();
     }
 
     // Concrete factories produce a family of products that belong to a single variant
     public class WinUIFactory : IGUIFactory
     {
-        public IButton CreateButton()
+        //windows family button
+        public IButton GetButton()
         {
             return new WinButton();
         }
 
-        public ICheckBox CreateCheckBox()
+        //windows family checkbox
+        public ICheckBox GetCheckBox()
         {
             return new WinCheckBox();
         }
@@ -67,12 +69,14 @@ namespace Creational.AbstractFactory
     // Concrete factories produce a family of products that belong to a single variant
     public class MacUIFactory : IGUIFactory
     {
-        public IButton CreateButton()
+        //mac family button
+        public IButton GetButton()
         {
             return new MacButton();
         }
 
-        public ICheckBox CreateCheckBox()
+        //mac family checkbox
+        public ICheckBox GetCheckBox()
         {
             return new MacCheckBox();
         }
@@ -85,14 +89,18 @@ namespace Creational.AbstractFactory
 
         public GUIClient(IGUIFactory factory)
         {
-            button = factory.CreateButton();
-            checkBox = factory.CreateCheckBox();
+            button = factory.GetButton();
+            checkBox = factory.GetCheckBox();
         }
 
-        public void CreateUIElements()
+        public IButton GetButton()
         {
-            button.CreateButton();
-            checkBox.CreateCheckBox();
+            return button;
+        }
+
+        public ICheckBox GetCheckBox()
+        {
+            return checkBox;
         }
     }
 }

@@ -23,10 +23,7 @@ namespace Creational.Prototype
         public IEmployee Clone()
         {
             // Shallow Copy: only top-level objects are duplicated
-            //return (IEmployee)MemberwiseClone();
-
-            // Deep Copy: all objects are duplicated
-            return (IEmployee)this.Clone();
+            return (IEmployee)MemberwiseClone();
         }
 
         public string GetDetails()
@@ -50,9 +47,6 @@ namespace Creational.Prototype
         {
             // Shallow Copy: only top-level objects are duplicated
             return (IEmployee)MemberwiseClone();
-
-            // Deep Copy: all objects are duplicated
-            //return (IEmployee)this.Clone();
         }
 
         public string GetDetails()

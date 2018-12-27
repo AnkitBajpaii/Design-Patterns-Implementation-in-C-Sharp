@@ -51,7 +51,7 @@ namespace Creational.AbstractFactory
     }
 
     // Concrete factories produce a family of products that belong to a single variant
-    public class Product1Factory : IAbstractFactory
+    public class ConcreteFactory1 : IAbstractFactory
     {
         public IAbstractProductA CreateATypeProduct(string type)
         {
@@ -75,7 +75,7 @@ namespace Creational.AbstractFactory
     }
 
     // Concrete factories produce a family of products that belong to a single variant
-    public class Product2Factory : IAbstractFactory
+    public class ConcreteFactory2 : IAbstractFactory
     {
         public IAbstractProductA CreateATypeProduct(string type)
         {

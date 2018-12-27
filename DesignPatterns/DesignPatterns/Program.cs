@@ -62,7 +62,7 @@ namespace DesignPatterns
 
         static void StandardAbstractFactoryPatternStructure()
         {
-            IAbstractFactory product1Factory = new Product1Factory();
+            IAbstractFactory product1Factory = new ConcreteFactory1();
 
             IAbstractProductA productA = product1Factory.CreateATypeProduct("1");
             IAbstractProductB productB = product1Factory.CreateBTypeProduct("1");         
@@ -73,7 +73,7 @@ namespace DesignPatterns
             ProductClient client = new ProductClient(product1Factory, "1");
             client.DisplayProductDetails();
 
-            IAbstractFactory product2Factory = new Product2Factory();
+            IAbstractFactory product2Factory = new ConcreteFactory2();
 
             productA = product2Factory.CreateATypeProduct("2");
             productB = product2Factory.CreateBTypeProduct("2");
@@ -88,23 +88,34 @@ namespace DesignPatterns
         static void AbstractFactoryPatternRealWorldDemo1()
         {
             Creational.AbstractFactoryRealWorld.IVehicleFactory hondaFactory = new HondaFactory();
-            VehicleClient hondaClient = new VehicleClient(hondaFactory, "Regular");
+            VehicleClient hondaClient = new VehicleClient(hondaFactory, "male");
             hondaClient.DisplayProductDetails();
 
             Console.WriteLine();
 
             Creational.AbstractFactoryRealWorld.IVehicleFactory heroFactory = new HeroFactory();
-            VehicleClient heroClient = new VehicleClient(heroFactory, "Sports");
+            VehicleClient heroClient = new VehicleClient(heroFactory, "female");
             heroClient.DisplayProductDetails();
         }
 
         static void AbstractFactoryPatternRealWorldDemo2()
         {
             GUIClient guiClient = new GUIClient(new WinUIFactory());
-            guiClient.CreateUIElements();
+            guiClient.GetButton().Click();
+            guiClient.GetCheckBox().Check();
 
             guiClient = new GUIClient(new MacUIFactory());
-            guiClient.CreateUIElements();
+            guiClient.GetButton().Click();
+            guiClient.GetCheckBox().Check();
+        }
+
+        static void AbstractFactoryPatternRealWorldDemo3()
+        {
+            AnimalWorld animalWorld = new AnimalWorld(new IndianFactory());
+            animalWorld.RunFoodChain();
+
+            animalWorld = new AnimalWorld(new AmericanFactory());
+            animalWorld.RunFoodChain();
         }
 
         #endregion
@@ -120,12 +131,12 @@ namespace DesignPatterns
 
         static void BuilderPatternRealWorldDemo1()
         {
-            var vehicleCreator = new VehicleCreator(new HondaBuilder());
+            var vehicleCreator = new VehicleDirector(new HondaBuilder());
             vehicleCreator.ConstructVehicle();
             Vehicle hondaVehicle = vehicleCreator.GetVehicle();
             hondaVehicle.ShowInfo();
 
-            vehicleCreator = new VehicleCreator(new HeroBuilder());
+            vehicleCreator = new VehicleDirector(new HeroBuilder());
             vehicleCreator.ConstructVehicle();
             Vehicle heroVehicle = vehicleCreator.GetVehicle();
             heroVehicle.ShowInfo();

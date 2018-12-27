@@ -35,26 +35,24 @@ namespace Creational.AbstractFactoryRealWorld
         string Name { get; set; }
     }
 
-    public class Scooty : IScooter
+    public class LadiesScooty : IScooter
     {
         public string Name { get; set; }
 
-        public Scooty(string name)
+        public LadiesScooty(string name)
         {
             Name = name;
         }
 
     }
 
-    public class RegularScooter : IScooter
+    public class GentsScooter : IScooter
     {
         public string Name { get; set; }
-        public RegularScooter(string name)
+        public GentsScooter(string name)
         {
             Name = name;
         }
-
-
     }
 
     //abstract factory
@@ -81,10 +79,10 @@ namespace Creational.AbstractFactoryRealWorld
         public IScooter GetScooter(string type)
         {
             string Name = "Honda " + type + " scooter";
-            if (type.Equals("Sports"))
-                return new Scooty(Name + " Scooty");
-            if (type.Equals("Regular"))
-                return new RegularScooter(Name);
+            if (type.Equals("female"))
+                return new LadiesScooty(Name + " Scooty");
+            if (type.Equals("male"))
+                return new GentsScooter(Name);
 
             throw new ApplicationException(string.Format("Vehicle '{0}' cannot be created", type));
         }
@@ -93,7 +91,6 @@ namespace Creational.AbstractFactoryRealWorld
     // Concrete factories produce a family of products that belong to a single variant
     public class HeroFactory : IVehicleFactory
     {
-
         public IBike GetBike(string type)
         {
             string Name = "Hero " + type + " bike";
@@ -108,10 +105,10 @@ namespace Creational.AbstractFactoryRealWorld
         public IScooter GetScooter(string type)
         {
             string Name = "Hero " + type + " scooter";
-            if (type.Equals("Sports"))
-                return new Scooty(Name + " Scooty");
-            if (type.Equals("Regular"))
-                return new RegularScooter(Name);
+            if (type.Equals("female"))
+                return new LadiesScooty(Name + " Scooty");
+            if (type.Equals("male"))
+                return new GentsScooter(Name);
 
             throw new ApplicationException(string.Format("Vehicle '{0}' cannot be created", type));
         }

@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Creational.Singleton
+﻿namespace Creational.Singleton
 {
     public sealed class Singleton
     {
         private static Singleton _instance;
         private static object _syncRoot = new object();
+
+        private Singleton()
+        {
+
+        }
 
         //For global access
         public static Singleton Instance
@@ -27,11 +27,6 @@ namespace Creational.Singleton
 
                 return _instance; 
             }
-        }
-
-        private Singleton()
-        {
-
         }
     }
 }
