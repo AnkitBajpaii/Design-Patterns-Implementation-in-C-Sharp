@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapter\AdapterPattern.cs" />
+    <Compile Include="Adapter\AdapterPatternUsingComposition.cs" />
+    <Compile Include="Adapter\AdapterPatternUsingInheritance.cs" />
     <Compile Include="Adapter\AdapterRealWorlDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,29 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
-namespace Structural.Adapter
+// Category: Class Adaptor
+namespace Structural.Adapter.ClassAdaptor
 {
     public interface ITarget
     {
-        void MethodA();
+        void request();
     }
 
     public class Adapter : Adaptee, ITarget
     {
-        public void MethodA()
+        public void request()
         {
             Console.WriteLine("Request handled by Adapter class. Adapter is now communicating with Adaptee..");
             Thread.Sleep(2000);
-            MethodB();
+            SpecificRequest();
         }
     }
 
     public class Adaptee
     {
-        public void MethodB()
+        public void SpecificRequest()
         {
             Console.WriteLine("Method B in Adaptee is called");
         }
@@ -43,7 +41,7 @@ namespace Structural.Adapter
             //Artificial latency
             Thread.Sleep(2000);
 
-            _target.MethodA();
+            _target.request();
         }
     }
 }

@@ -12,6 +12,7 @@ using Creational.Singleton;
 
 using Structural.Adapter;
 using Structural.AdapterRealWorldDemo;
+using Structural.Adapter.ClassAdaptor;
 
 namespace DesignPatterns
 {
@@ -203,7 +204,7 @@ namespace DesignPatterns
 
         public static void StandardAdapterPattern()
         {
-            Structural.Adapter.Client client = new Structural.Adapter.Client(new Adapter());
+            Client client = new Client(new Adapter());
             client.MakeRequest();
         }
 

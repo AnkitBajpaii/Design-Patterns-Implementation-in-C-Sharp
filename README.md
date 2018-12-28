@@ -16,13 +16,15 @@ The 23 Gang of Four (GoF) patterns are generally considered the foundation for a
 - Structural  
 - Behavioral 
 
-This repository contains the implementation of Creational Patterns :
+This repository contains the implementation demo's for:
+Creational Patterns  
 - Factory Pattern  
 - Abstract Factory Pattern  
 - Builder Pattern  
 - Prototype Pattern  
-- Singleton Pattern
+- Singleton Pattern  
 
-## Up-coming  
 Structual Pattern  
+- Adaptor Pattern( aka Wrapper Pattern)  
+- Bridge Pattern -- Coming up soon..
 
