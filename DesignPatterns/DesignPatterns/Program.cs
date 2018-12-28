@@ -186,8 +186,8 @@ namespace DesignPatterns
         #region Singleton Pattern
         static void SingletonPatternDemo()
         {
-            Creational.Singleton.Singleton Instance_1 = Singleton.Instance;
-            Creational.Singleton.Singleton Instance_2 = Singleton.Instance;
+            Creational.Singleton.SingletonPatternLazyThreadSafeWithDoubleCheckLock Instance_1 = SingletonPatternLazyThreadSafeWithDoubleCheckLock.Instance;
+            Creational.Singleton.SingletonPatternLazyThreadSafeWithDoubleCheckLock Instance_2 = SingletonPatternLazyThreadSafeWithDoubleCheckLock.Instance;
             if (Instance_1 == Instance_2)
                 Console.WriteLine("These are Singleton instance");
             else

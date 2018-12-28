@@ -54,7 +54,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prototype\PrototypePattern.cs" />
     <Compile Include="Prototype\PrototypeRealWorld.cs" />
-    <Compile Include="Singleton\SingletonPattern.cs" />
+    <Compile Include="Singleton\4.SingletonPatternEagerInstantiationThreadSafe.cs" />
+    <Compile Include="Singleton\5.SingletonPatternFullyLazy.cs" />
+    <Compile Include="Singleton\3.SingletonPatternLazyThreadSafeWithDoubleCheckLock.cs" />
+    <Compile Include="Singleton\1.SingletonPatternLazyAndNonThreadSafe.cs" />
+    <Compile Include="Singleton\2.SingletonPatternLazyThreadSafeWithSingleLock.cs" />
+    <Compile Include="Singleton\6.SingletonUsingBuiltInLazyType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
