@@ -1,4 +1,4 @@
-﻿namespace Creational.Prototype
+﻿namespace Creational.Prototype.Standard
 {
     public abstract class Prototype
     {

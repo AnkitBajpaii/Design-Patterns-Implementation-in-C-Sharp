@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Creational.AbstractFactory
+namespace Creational.AbstractFactory.RealWorld
 {
     public interface IButton
     {

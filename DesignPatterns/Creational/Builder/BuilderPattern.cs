@@ -1,6 +1,6 @@
 ﻿//Respecting the dependency inversion principle
 
-namespace Creational.Builder
+namespace Creational.Builder.Standard
 {
     public interface IProduct
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Creational.AbstractFactory
+namespace Creational.AbstractFactory.RealWorld
 {
     public interface IHerbivore
     {

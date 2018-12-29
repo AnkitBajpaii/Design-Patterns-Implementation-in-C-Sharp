@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Creational.Factory
+namespace Creational.Factory.RealWorld
 {
     public interface IPage
     {

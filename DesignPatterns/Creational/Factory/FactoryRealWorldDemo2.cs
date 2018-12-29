@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Creational.Factory
+namespace Creational.Factory.RealWorld
 {
     public interface ILogger
     {

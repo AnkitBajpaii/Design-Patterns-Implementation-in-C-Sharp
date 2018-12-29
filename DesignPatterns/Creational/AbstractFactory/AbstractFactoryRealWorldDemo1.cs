@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Creational.AbstractFactoryRealWorld
+namespace Creational.AbstractFactory.RealWorld
 {
     //Abstract types
 

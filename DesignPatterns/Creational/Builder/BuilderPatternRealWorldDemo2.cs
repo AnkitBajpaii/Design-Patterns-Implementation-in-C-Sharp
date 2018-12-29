@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Creational.Builder
+namespace Creational.Builder.RealWorld
 {
     public interface ISmartPhone
     {

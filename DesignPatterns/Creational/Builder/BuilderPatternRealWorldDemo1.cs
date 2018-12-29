@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Creational.Builder
+namespace Creational.Builder.RealWorld
 {
     public class Vehicle
     {

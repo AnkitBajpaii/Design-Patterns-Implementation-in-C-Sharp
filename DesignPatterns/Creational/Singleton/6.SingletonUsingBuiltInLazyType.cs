@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Creational.Singleton
+namespace Creational.Singleton.Standard
 {
     public sealed class SingletonUsingBuiltInLazyType
     {

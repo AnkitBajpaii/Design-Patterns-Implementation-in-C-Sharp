@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Creational.Prototype
+﻿namespace Creational.Prototype.RealWorld
 {
     /// <summary>
     /// The 'Prototype' interface

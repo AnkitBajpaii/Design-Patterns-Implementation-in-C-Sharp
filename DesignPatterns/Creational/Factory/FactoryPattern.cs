@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Creational.Factory
+namespace Creational.Factory.Standard
 {
     public interface IProduct
     {
