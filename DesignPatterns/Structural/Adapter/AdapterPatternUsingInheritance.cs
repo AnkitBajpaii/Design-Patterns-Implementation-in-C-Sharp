@@ -2,7 +2,7 @@
 using System.Threading;
 
 // Category: Class Adaptor
-namespace Structural.Adapter.ClassAdaptor
+namespace Structural.Adapter.Standard.ClassAdaptor
 {
     public interface ITarget
     {

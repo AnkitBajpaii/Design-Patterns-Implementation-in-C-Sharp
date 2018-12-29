@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
-namespace Structural.AdapterRealWorldDemo
+namespace Structural.Adapter.RealWorld
 {
     //Adaptee class
     public class HRSystem

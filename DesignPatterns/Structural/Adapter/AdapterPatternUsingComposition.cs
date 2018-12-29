@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Structural.Adapter.Composition
+namespace Structural.Adapter.Standard.Composition
 {
     public interface ITarget
     {
