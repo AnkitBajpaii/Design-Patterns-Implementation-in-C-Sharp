@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Creational.Factory.RealWorld;
+using Creational.Factory.Standard;
+using Creational.AbstractFactory.Standard;
+using Creational.AbstractFactory.RealWorld;
+using Creational.Builder.Standard;
+using Creational.Builder.RealWorld;
+using Creational.Prototype.RealWorld;
+using Creational.Singleton.Standard;
 
-using Creational.Factory;
-using Creational.AbstractFactory;
-using Creational.AbstractFactoryRealWorld;
-using Creational.Builder;
-using Creational.Prototype;
-using Creational.Singleton;
-
-using Structural.Adapter;
-using Structural.AdapterRealWorldDemo;
-using Structural.Adapter.ClassAdaptor;
+using System;
+using Structural.Adapter.Standard.ClassAdaptor;
+using Structural.Adapter.RealWorld;
+using Structural.Bridge.Standard;
+using Structural.Bridge.RealWorld;
+using Structural.Composite.RealWorld;
 
 namespace DesignPatterns
 {
@@ -27,16 +27,16 @@ namespace DesignPatterns
             //Creating Objects by Factory Pattern
             Creator creator = new ConcreteCreator();
 
-            Creational.Factory.IProduct productA = creator.FactoryMethod("A");
+            Creational.Factory.Standard.IProduct productA = creator.FactoryMethod("A");
             productA.SomeMethod();
 
-            Creational.Factory.IProduct productB = creator.FactoryMethod("B");
+            Creational.Factory.Standard.IProduct productB = creator.FactoryMethod("B");
             productB.SomeMethod();
         }
 
         static void FactoryPatternRealWorldDemo1()
         {
-            Creational.Factory.IVehicleFactory factory = new ConcreteVehicleFactory();
+            Creational.Factory.RealWorld.IVehicleFactory factory = new ConcreteVehicleFactory();
 
             IVehicle scooter = factory.GetVehicle("Scooter");
             scooter.Drive(10);
@@ -66,7 +66,7 @@ namespace DesignPatterns
             IAbstractFactory product1Factory = new ConcreteFactory1();
 
             IAbstractProductA productA = product1Factory.CreateATypeProduct("1");
-            IAbstractProductB productB = product1Factory.CreateBTypeProduct("1");         
+            IAbstractProductB productB = product1Factory.CreateBTypeProduct("1");
             productA.DisplayProductDetails();
             productB.DisplayProductDetails();
 
@@ -88,13 +88,13 @@ namespace DesignPatterns
 
         static void AbstractFactoryPatternRealWorldDemo1()
         {
-            Creational.AbstractFactoryRealWorld.IVehicleFactory hondaFactory = new HondaFactory();
+            Creational.AbstractFactory.RealWorld.IVehicleFactory hondaFactory = new HondaFactory();
             VehicleClient hondaClient = new VehicleClient(hondaFactory, "male");
             hondaClient.DisplayProductDetails();
 
             Console.WriteLine();
 
-            Creational.AbstractFactoryRealWorld.IVehicleFactory heroFactory = new HeroFactory();
+            Creational.AbstractFactory.RealWorld.IVehicleFactory heroFactory = new HeroFactory();
             VehicleClient heroClient = new VehicleClient(heroFactory, "female");
             heroClient.DisplayProductDetails();
         }
@@ -127,7 +127,7 @@ namespace DesignPatterns
         {
             var director = new Director(new ConcreteBuilder());
             director.Construct();
-            Creational.Builder.IProduct product = director.GetProduct();            
+            Creational.Builder.Standard.IProduct product = director.GetProduct();
         }
 
         static void BuilderPatternRealWorldDemo1()
@@ -187,8 +187,8 @@ namespace DesignPatterns
         #region Singleton Pattern
         static void SingletonPatternDemo()
         {
-            Creational.Singleton.SingletonPatternLazyThreadSafeWithDoubleCheckLock Instance_1 = SingletonPatternLazyThreadSafeWithDoubleCheckLock.Instance;
-            Creational.Singleton.SingletonPatternLazyThreadSafeWithDoubleCheckLock Instance_2 = SingletonPatternLazyThreadSafeWithDoubleCheckLock.Instance;
+            SingletonPatternLazyThreadSafeWithDoubleCheckLock Instance_1 = SingletonPatternLazyThreadSafeWithDoubleCheckLock.Instance;
+            SingletonPatternLazyThreadSafeWithDoubleCheckLock Instance_2 = SingletonPatternLazyThreadSafeWithDoubleCheckLock.Instance;
             if (Instance_1 == Instance_2)
                 Console.WriteLine("These are Singleton instance");
             else
@@ -216,48 +216,99 @@ namespace DesignPatterns
 
         #endregion
 
+        #region BridgePattern
+
+        static void BridgePatternStandard()
+        {
+            Abstraction _abstraction = new RefinedAbstraction(new ConcreteImplementor1());
+            _abstraction.Operation();
+        }
+
+        static void BridgePatternRealWorld1()
+        {
+            AdvancedTVRemoteControl _remoteControl = new AdvancedTVRemoteControl(new SamsungTV());
+            _remoteControl.powerOn();
+            _remoteControl.setChannel(3);
+            _remoteControl.nextChannel();
+            _remoteControl.prevChannel();
+            _remoteControl.powerOff();
+
+            _remoteControl = new AdvancedTVRemoteControl(new SonyTV());
+            _remoteControl.powerOn();
+            _remoteControl.setChannel(3);
+            _remoteControl.nextChannel();
+            _remoteControl.prevChannel();
+            _remoteControl.powerOff();
+        }
+
+        static void BridgePatternRealWorld2()
+        {
+            Shape _shape = new Triangle(new RedColor());
+            _shape.Paint();
+
+            _shape = new Triangle(new GreenColor());
+            _shape.Paint();
+
+            _shape = new Circle(new RedColor());
+            _shape.Paint();
+
+        }
+
+        static void BridgePatternRealWorld3()
+        {
+            SendData _sendDataAbstraction = new SendEmail(new WebService());
+            _sendDataAbstraction.Send("some message");
+
+            _sendDataAbstraction = new SendSMS(new WebService());
+            _sendDataAbstraction.Send("some message");
+
+            _sendDataAbstraction = new SendEmail(new WCFService());
+            _sendDataAbstraction.Send("some message");
+
+            _sendDataAbstraction = new SendEmail(new ThirdPartyAPIService());
+            _sendDataAbstraction.Send("some message");
+
+        }
+
+        #endregion
+
+        #region
+
+        static void CompositePatternStandard()
+        {
+
+        }
+
+        static void CompositePatternRealWorld()
+        {
+            IFileComponent leafFile1 = new LeafFile("file 1"),
+                leafFile2 = new LeafFile("file 2"),
+                leafFile3 = new LeafFile("file 3"),
+                leafFile4 = new LeafFile("file 4");
+
+            Directory directoryA = new Directory("FolderA"),
+                directoryB = new Directory("FolderB"),
+                directoryC = new Directory("FolderC");
+
+            directoryA.Add(leafFile1);
+            directoryA.Add(directoryB);
+            directoryA.Add(leafFile2);
+
+            directoryB.Add(leafFile3);
+            directoryB.Add(leafFile4);
+            directoryB.Add(directoryC);
+
+            directoryA.PrintName();
+            directoryB.PrintName();
+        }
+
+        #endregion
+
         #endregion
 
         static void Main(string[] args)
         {
-            // Un-Comment the below patterns to see output
-
-            #region Creationtional Patterns
-            #region Factory Pattern
-            //StandardFactoryPatternStructure();
-            //FactoryPatternRealWorldDemo1();
-            //FactoryPatternRealWorldDemo2();
-            #endregion
-
-            #region Abstract Factory Pattern
-            //StandardAbstractFactoryPatternStructure();
-            //AbstractFactoryPatternRealWorldDemo1();
-            //AbstractFactoryPatternRealWorldDemo2();
-            #endregion
-
-            #region Builder Pattern
-            //StandardBuilderPatternStructure();
-            //BuilderPatternRealWorldDemo1();
-            //BuilderPatternRealWorldDemo2();
-            #endregion
-
-            #region Prototype Pattern            
-            //PrototypePatternRealWorldDemo();
-            #endregion
-
-            #region Singleton Pattern
-            //SingletonPatternDemo();
-            #endregion
-            #endregion
-
-            #region Structural Patterns
-
-            #region AdapterPattern
-            //StandardAdapterPattern();
-            //RealWorldAdapterPattern();
-            #endregion
-
-            #endregion
+            // Invoke the function
 
             Console.ReadLine();
         }
