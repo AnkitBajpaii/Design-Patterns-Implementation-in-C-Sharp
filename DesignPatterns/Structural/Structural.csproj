@@ -43,11 +43,14 @@
     <Compile Include="Adapter\AdapterPatternUsingComposition.cs" />
     <Compile Include="Adapter\AdapterPatternUsingInheritance.cs" />
     <Compile Include="Adapter\AdapterRealWorlDemo.cs" />
+    <Compile Include="Bridge\BridgePattern.cs" />
+    <Compile Include="Bridge\BridgePatternRealWorldDemo1.cs" />
+    <Compile Include="Bridge\BridgePatternRealWorldDemo2.cs" />
+    <Compile Include="Bridge\BridgePatternRealWorldDemo3.cs" />
+    <Compile Include="Composite\CompositePattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Bridge\" />
-    <Folder Include="Composite\" />
     <Folder Include="Decorator\" />
     <Folder Include="Facade\" />
     <Folder Include="Flyweight\" />
