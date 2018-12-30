@@ -1,4 +1,5 @@
-﻿using Creational.Factory.RealWorld;
+﻿using System;
+using Creational.Factory.RealWorld;
 using Creational.Factory.Standard;
 using Creational.AbstractFactory.Standard;
 using Creational.AbstractFactory.RealWorld;
@@ -6,8 +7,6 @@ using Creational.Builder.Standard;
 using Creational.Builder.RealWorld;
 using Creational.Prototype.RealWorld;
 using Creational.Singleton.Standard;
-
-using System;
 using Structural.Adapter.Standard.ClassAdaptor;
 using Structural.Adapter.RealWorld;
 using Structural.Bridge.Standard;
@@ -200,7 +199,7 @@ namespace DesignPatterns
 
         #endregion
 
-        #region StructurlPatterns
+        #region Structural Patterns
 
         #region Adapter Pattern
 
@@ -351,6 +350,10 @@ namespace DesignPatterns
 
         #endregion
 
+        #endregion
+
+        #region Behavioural Patterns
+        // To Do
         #endregion
 
         static void Main(string[] args)

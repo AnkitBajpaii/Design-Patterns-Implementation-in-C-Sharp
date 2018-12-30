@@ -51,6 +51,7 @@
     <Compile Include="Factory\FactoryRealWorldDemo1.cs" />
     <Compile Include="Factory\FactoryRealWorldDemo2.cs" />
     <Compile Include="Factory\FactoryRealWorldDemo3.cs" />
+    <Compile Include="ObjectPool\ObjectPoolPattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prototype\PrototypePattern.cs" />
     <Compile Include="Prototype\PrototypeRealWorld.cs" />
