@@ -49,11 +49,15 @@ namespace Structural.Composite.RealWorld
         public void PrintName()
         {
             Console.WriteLine("Directory name: " + this.directoryName);
+            foreach (var item in filesOrFolders)
+            {
+                item.PrintName();
+            }
         }
 
         public void Add(IFileComponent fileOrFolder)
         {
-            this.filesOrFolders.Add(filesOrFolder);
+            this.filesOrFolders.Add(fileOrFolder);
         }
 
 
