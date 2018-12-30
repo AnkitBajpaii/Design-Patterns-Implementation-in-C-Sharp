@@ -26,5 +26,10 @@ Creational Patterns
 
 Structual Pattern  
 - Adaptor Pattern( aka Wrapper Pattern)  
-- Bridge Pattern -- Coming up soon..
+- Bridge Pattern  
+- Composite Pattern  
+- Decorator Pattern 
+- Facade Pattern (Coming Soon)  
+- Proxy Pattern (Coming Soon)  
+- FlyWeight Pattern (Coming Soon)  
 
