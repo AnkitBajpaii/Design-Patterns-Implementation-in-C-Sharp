@@ -48,10 +48,13 @@
     <Compile Include="Bridge\BridgePatternRealWorldDemo2.cs" />
     <Compile Include="Bridge\BridgePatternRealWorldDemo3.cs" />
     <Compile Include="Composite\CompositePattern.cs" />
+    <Compile Include="Composite\CompositePatternRealWorldDemo1.cs" />
+    <Compile Include="Decorator\DecoratorPatternRealWorldDemo1.cs" />
+    <Compile Include="Decorator\DecoratorPatternRealWorldDemo2.cs" />
+    <Compile Include="Decorator\DecoratorPatternStandard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Decorator\" />
     <Folder Include="Facade\" />
     <Folder Include="Flyweight\" />
     <Folder Include="Proxy\" />

@@ -13,6 +13,8 @@ using Structural.Adapter.RealWorld;
 using Structural.Bridge.Standard;
 using Structural.Bridge.RealWorld;
 using Structural.Composite.RealWorld;
+using Structural.Decorator.Standard;
+using Structural.Decorator.RealWorld;
 
 namespace DesignPatterns
 {
@@ -216,7 +218,7 @@ namespace DesignPatterns
 
         #endregion
 
-        #region BridgePattern
+        #region Bridge Pattern
 
         static void BridgePatternStandard()
         {
@@ -272,7 +274,7 @@ namespace DesignPatterns
 
         #endregion
 
-        #region
+        #region Composite Pattern
 
         static void CompositePatternStandard()
         {
@@ -300,6 +302,51 @@ namespace DesignPatterns
 
             directoryA.PrintName();
             directoryB.PrintName();
+        }
+
+        #endregion
+
+        #region Decorator Pattern
+
+        static void DecoratorPatternStandard()
+        {
+            IComponent component = new ConcreteComponent();
+            component.Operation1(); // Basic operation
+
+            // now we will extend the object behavior at run time
+
+            component = new ConcreteDecorator(component); // we decorated ConcreteComponent with a decorator
+            component.Operation1(); // do basic operation plus some advance operation
+        }
+
+        static void DecoratorPatternRealWorldDemo1()
+        {
+            IHouse house = new SimpleHouse();
+            Console.WriteLine(house.MakeHouse());
+
+            house = new ColorDecorator(house);
+            Console.WriteLine(house.MakeHouse());
+
+            house = new LightsDecorator(new SimpleHouse());
+            Console.WriteLine(house.MakeHouse());
+
+            house = new LightsDecorator(new ColorDecorator(new SimpleHouse()));
+            Console.WriteLine(house.MakeHouse());
+        }
+
+        static void DecoratorPatternRealWorldDemo2()
+        {
+            // Black Coffee
+            ICoffee coffee = new Coffee();
+            Console.WriteLine(coffee.GetIngredients() + ", " + coffee.GetCost());
+
+            //Milk Coffee
+            coffee = new MilkDecorator(coffee);
+            Console.WriteLine(coffee.GetIngredients() + ", " + coffee.GetCost());
+
+            //Milk + Chocolate coffee
+            coffee = new MilkDecorator(new ChocolateDecorator(new Coffee()));
+            Console.WriteLine(coffee.GetIngredients() + ", " + coffee.GetCost());
         }
 
         #endregion
