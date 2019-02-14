@@ -108,11 +108,13 @@ namespace Structural.Bridge.RealWorld
         public void nextChannel()
         {
             var channel = this.getChannel();
+            channel++;
             this.setChannel(channel);
         }
         public void prevChannel()
         {
             var channel = this.getChannel();
+            channel--;
             this.setChannel(channel);
         }
     }
